@@ -19,11 +19,11 @@ struct WishItemRow: View {
                 Image(systemName: wishItem.isCompleted ? "checkmark.circle.fill" : "circle")
             }
             .buttonStyle(.plain)
+            
+            TextField("Wish Item", text: $wishItem.name, axis: .vertical)
+                .focused(focusedItem, equals: wishItem)
+            
+            Spacer()
         }
-        
-        TextField("Wish Item", text: $wishItem.name, axis: .vertical)
-            .focused(focusedItem, equals: wishItem)
-        
-        Spacer()
     }
 }

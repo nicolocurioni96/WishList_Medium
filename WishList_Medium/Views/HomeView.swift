@@ -67,7 +67,7 @@ struct HomeView: View {
                 } label: {
                     HStack {
                         Image(systemName: "plus")
-                            Text("Add Wish Item")
+                        Text("Add Wish Item")
                     }
                 }
                 .buttonStyle(.borderless)
