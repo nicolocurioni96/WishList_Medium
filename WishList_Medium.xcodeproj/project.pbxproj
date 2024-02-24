@@ -13,8 +13,6 @@
 		A10A09D12B879EFD00B0BE3C /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10A09D02B879EFD00B0BE3C /* HomeView.swift */; };
 		A10A09D72B87A1DB00B0BE3C /* ColorOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10A09D62B87A1DB00B0BE3C /* ColorOption.swift */; };
 		A10A09DC2B88FA2400B0BE3C /* WishItemRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10A09DB2B88FA2400B0BE3C /* WishItemRow.swift */; };
-		A10A09DE2B88FBB100B0BE3C /* ItemSymbols.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10A09DD2B88FBB100B0BE3C /* ItemSymbols.swift */; };
-		A10A09E02B88FC8A00B0BE3C /* SymbolPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10A09DF2B88FC8A00B0BE3C /* SymbolPicker.swift */; };
 		A10A09E32B8900E200B0BE3C /* WishViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10A09E22B8900E200B0BE3C /* WishViewModel.swift */; };
 		A10A09E72B8A0F4600B0BE3C /* OperationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10A09E62B8A0F4600B0BE3C /* OperationView.swift */; };
 /* End PBXBuildFile section */
@@ -27,8 +25,6 @@
 		A10A09D02B879EFD00B0BE3C /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		A10A09D62B87A1DB00B0BE3C /* ColorOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorOption.swift; sourceTree = "<group>"; };
 		A10A09DB2B88FA2400B0BE3C /* WishItemRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishItemRow.swift; sourceTree = "<group>"; };
-		A10A09DD2B88FBB100B0BE3C /* ItemSymbols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemSymbols.swift; sourceTree = "<group>"; };
-		A10A09DF2B88FC8A00B0BE3C /* SymbolPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymbolPicker.swift; sourceTree = "<group>"; };
 		A10A09E22B8900E200B0BE3C /* WishViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishViewModel.swift; sourceTree = "<group>"; };
 		A10A09E62B8A0F4600B0BE3C /* OperationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -66,8 +62,8 @@
 				A10A09E92B8A1C3900B0BE3C /* App */,
 				A10A09CF2B879ED800B0BE3C /* Views */,
 				A10A09E42B89026B00B0BE3C /* Models */,
-				A10A09D82B88F9F400B0BE3C /* Components */,
 				A10A09E12B8900D700B0BE3C /* ViewModels */,
+				A10A09D82B88F9F400B0BE3C /* Components */,
 				A10A09D42B87A1BD00B0BE3C /* Helpers */,
 				A10A09C52B8796FA00B0BE3C /* Assets.xcassets */,
 				A10A09C72B8796FA00B0BE3C /* Preview Content */,
@@ -104,8 +100,6 @@
 			isa = PBXGroup;
 			children = (
 				A10A09D62B87A1DB00B0BE3C /* ColorOption.swift */,
-				A10A09DD2B88FBB100B0BE3C /* ItemSymbols.swift */,
-				A10A09DF2B88FC8A00B0BE3C /* SymbolPicker.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -246,8 +240,6 @@
 				A10A09DC2B88FA2400B0BE3C /* WishItemRow.swift in Sources */,
 				A10A09D12B879EFD00B0BE3C /* HomeView.swift in Sources */,
 				A10A09D72B87A1DB00B0BE3C /* ColorOption.swift in Sources */,
-				A10A09DE2B88FBB100B0BE3C /* ItemSymbols.swift in Sources */,
-				A10A09E02B88FC8A00B0BE3C /* SymbolPicker.swift in Sources */,
 				A10A09E72B8A0F4600B0BE3C /* OperationView.swift in Sources */,
 				A10A09C02B8796F800B0BE3C /* WishList_MediumApp.swift in Sources */,
 				A10A09E32B8900E200B0BE3C /* WishViewModel.swift in Sources */,

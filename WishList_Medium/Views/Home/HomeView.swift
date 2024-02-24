@@ -9,17 +9,13 @@ import SwiftUI
 
 final class WishItem: Identifiable {
     var id = UUID()
-    var symbol: String = ItemSymbols.randomName()
-    var color: RGBAColor = ColorOptions.random().rgbaColor
     var name = ""
     var isCompleted = false
     var isNew = false
     var date = Date.now
     
-    init(id: UUID = UUID(), symbol: String, color: RGBAColor, name: String = "", isCompleted: Bool = false, isNew: Bool = false, date: Foundation.Date = Date.now) {
+    init(id: UUID = UUID(), name: String = "", isCompleted: Bool = false, isNew: Bool = false, date: Date = Date.now) {
         self.id = id
-        self.symbol = symbol
-        self.color = color
         self.name = name
         self.isCompleted = isCompleted
         self.isNew = isNew
@@ -62,17 +58,14 @@ struct HomeView: View {
                 }
             }
             .navigationBarTitleDisplayMode(.automatic)
-            .sheet(isPresented: $isPickingSymbol) {
-                SymbolPicker(wishItem: $wishItem)
-            }
             .sheet(isPresented: self.$newWishItem) {
-                OperationView(wishItem: nil)
+                OperationView()
             }
         }
     }
 }
 
 #Preview {
-    HomeView(wishItem: .constant(.init(symbol: ItemSymbols.randomName(), color: ColorOptions.random().rgbaColor)))
+    HomeView(wishItem: .constant(.init()))
 }
 

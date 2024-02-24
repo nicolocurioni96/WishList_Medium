@@ -11,19 +11,15 @@ struct OperationView: View {
     @Environment(\.dismiss) var dismiss
     
     @State var wishViewModel = WishViewModel()
-    @State private var isPickingSymbol = false
     @State private var name = ""
-    @State private var symbol = ItemSymbols.randomName()
     @State private var isCompleted = false
     @State private var isNew = false
-    @State private var color: RGBAColor = ColorOptions.random().rgbaColor
     @State private var date = Date.now
     
     @State private var buttonConfirmTitle = "Save"
     @State private var buttonCancelTitle = "Cancel"
     @State private var editorTitle = "Add Wish Item"
     
-    var wishItem: WishItem? = nil
     let currentDate = Date()
     
     var body: some View {
@@ -33,18 +29,9 @@ struct OperationView: View {
                     Form {
                         Section {
                             HStack {
-                                Button {
-                                    isPickingSymbol.toggle()
-                                } label: {
-                                    Image(systemName: symbol)
-                                        .imageScale(.large)
-                                        .foregroundColor(Color(color))
-                                }
-                                .buttonStyle(.plain)
-                                .padding(.horizontal, 5)
-                                
                                 TextField("Wish Name", text: $name)
                                     .font(.title2)
+                                    .textInputAutocapitalization(.none)
                             }
                             .padding(.top, 5)
                         }
@@ -100,48 +87,17 @@ struct OperationView: View {
                 }
             }
         }
-        .onAppear {
-            if let wishItem {
-                // Getting/reading current Wish Item (EDIT)
-                name = wishItem.name
-                symbol = wishItem.symbol
-                date = wishItem.date
-                isCompleted = wishItem.isCompleted
-                isNew = wishItem.isNew
-                color = wishItem.color
-                
-                buttonConfirmTitle = "Update"
-                buttonCancelTitle = "Cancel"
-                editorTitle = "Update Item"
-            } else {
-                buttonConfirmTitle = "Add"
-                buttonCancelTitle = "Cancel"
-                editorTitle = "New Item"
-            }
-        }
     }
     
     // MARK: - Private Methods
     private func saveWishItem() {
         withAnimation {
-            if let wishItem {
-                // Edit current WishItem
-                wishItem.name = name
-                wishItem.symbol = symbol
-                wishItem.date = date
-                wishItem.isCompleted = isCompleted
-                wishItem.isNew = isNew
-                wishItem.color = color
-                
-                dismiss()
-            } else {
-                // Add new Wish Item
-                let newWishItem = WishItem(symbol: symbol, color: color, name: name, isCompleted: isCompleted, isNew: isNew)
-                
-                wishViewModel.addItem(newWishItem)
-                
-                dismiss()
-            }
+            // Add new Wish Item
+            let newWishItem = WishItem(name: name, isCompleted: isCompleted, isNew: isNew)
+            
+            wishViewModel.addItem(newWishItem)
+            
+            dismiss()
         }
     }
     

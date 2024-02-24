@@ -10,12 +10,7 @@ import SwiftUI
 @Observable 
 class WishViewModel {
     // MARK: - Properties
-    var wishItems: [WishItem] = [
-        WishItem(symbol: ItemSymbols.randomName(), color: ColorOptions.random().rgbaColor, name: "Apple Vision Pro"),
-        WishItem(symbol: ItemSymbols.randomName(), color: ColorOptions.random().rgbaColor, name: "iPad Pro"),
-        WishItem(symbol: ItemSymbols.randomName(), color: ColorOptions.random().rgbaColor, name: "Samsung Galaxy S24"),
-        WishItem(symbol: ItemSymbols.randomName(), color: ColorOptions.random().rgbaColor, name: "Tesla Model Y")
-    ]
+    var wishItems: [WishItem] = []
     
     // MARK: - Methods
     func addItem(_ item: WishItem) {
