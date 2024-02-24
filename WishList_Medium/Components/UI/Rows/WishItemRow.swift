@@ -9,7 +9,6 @@ import SwiftUI
 
 struct WishItemRow: View {
     @Binding var wishItem: WishItem
-    var focusedItem: FocusState<WishItem?>.Binding
     
     var body: some View {
         HStack {
@@ -20,8 +19,13 @@ struct WishItemRow: View {
             }
             .buttonStyle(.plain)
             
-            TextField("Wish Item", text: $wishItem.name, axis: .vertical)
-                .focused(focusedItem, equals: wishItem)
+            VStack(alignment: .leading) {
+                TextField("Wish Item", text: $wishItem.name)
+                
+                Text(wishItem.date.formatted(date: .abbreviated, time: .shortened))
+                    .font(.caption2)
+                    .foregroundStyle(.secondary)
+            }
             
             Spacer()
         }

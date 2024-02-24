@@ -18,11 +18,9 @@ struct ItemSymbols {
     
     static func randomNames(_ number: Int) -> [String] {
         var names: [String] = []
-        
         for _ in 0..<number {
             names.append(randomName())
         }
-        
         return names
     }
     

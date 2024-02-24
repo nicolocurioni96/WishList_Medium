@@ -11,7 +11,7 @@ import SwiftUI
 struct WishList_MediumApp: App {
     var body: some Scene {
         WindowGroup {
-            HomeView(wishViewModel: .constant(.init()), wishItem: .constant(.init()))
+            HomeView(wishItem: .constant(.init(symbol: ItemSymbols.randomName(), color: ColorOptions.random().rgbaColor)))
         }
     }
 }

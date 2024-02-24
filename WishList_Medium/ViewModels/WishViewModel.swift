@@ -11,10 +11,10 @@ import SwiftUI
 class WishViewModel {
     // MARK: - Properties
     var wishItems: [WishItem] = [
-        WishItem(name: "Apple Vision Pro"),
-        WishItem(name: "iPad Pro"),
-        WishItem(name: "Samsung Galaxy S24"),
-        WishItem(name: "Tesla Model Y")
+        WishItem(symbol: ItemSymbols.randomName(), color: ColorOptions.random().rgbaColor, name: "Apple Vision Pro"),
+        WishItem(symbol: ItemSymbols.randomName(), color: ColorOptions.random().rgbaColor, name: "iPad Pro"),
+        WishItem(symbol: ItemSymbols.randomName(), color: ColorOptions.random().rgbaColor, name: "Samsung Galaxy S24"),
+        WishItem(symbol: ItemSymbols.randomName(), color: ColorOptions.random().rgbaColor, name: "Tesla Model Y")
     ]
     
     // MARK: - Methods
@@ -26,7 +26,6 @@ class WishViewModel {
     func removeItem(_ indexSet: IndexSet) {
         // [WIP] - Currently with dummy data..
         wishItems.remove(atOffsets: indexSet)
-        
     }
     
     func updateItem(_ item: WishItem) {

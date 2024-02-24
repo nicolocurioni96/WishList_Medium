@@ -20,7 +20,6 @@ struct SymbolPicker: View {
         VStack {
             HStack {
                 Spacer()
-                
                 Button {
                     dismiss()
                 } label: {
@@ -28,12 +27,11 @@ struct SymbolPicker: View {
                 }
                 .padding()
             }
-            
             HStack {
                 Image(systemName: wishItem.symbol)
                     .font(.title)
                     .imageScale(.large)
-                    .foregroundStyle(selectedColor)
+                    .foregroundColor(selectedColor)
             }
             .padding()
             
@@ -44,7 +42,7 @@ struct SymbolPicker: View {
                         wishItem.color = color.rgbaColor
                     } label: {
                         Circle()
-                            .foregroundStyle(color)
+                            .foregroundColor(color)
                     }
                 }
             }
@@ -61,21 +59,22 @@ struct SymbolPicker: View {
                         } label: {
                             Image(systemName: symbolItem)
                                 .imageScale(.large)
-                                .foregroundStyle(selectedColor)
+                                .foregroundColor(selectedColor)
                                 .padding(5)
                         }
+                        .buttonStyle(.plain)
                     }
-                    .drawingGroup()
                 }
+                .drawingGroup()
             }
-            .onAppear {
-                selectedColor = Color(wishItem.color)
-            }
+        }
+        .onAppear {
+            selectedColor = Color(wishItem.color)
         }
     }
 }
 
 
 #Preview {
-    SymbolPicker(wishItem: .constant(.init(name: "Apple Vision Pro")))
+    SymbolPicker(wishItem: .constant(.init(symbol: ItemSymbols.randomName(), color: ColorOptions.random().rgbaColor, name: "Apple Vision Pro")))
 }
