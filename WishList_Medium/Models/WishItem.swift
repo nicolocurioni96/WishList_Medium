@@ -6,7 +6,9 @@
 //
 
 import Foundation
+import SwiftData
 
+@Model
 final class WishItem: Identifiable {
     var id = UUID()
     var name = ""
