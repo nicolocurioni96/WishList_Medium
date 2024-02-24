@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftData
 
 @Observable 
 class WishViewModel {
