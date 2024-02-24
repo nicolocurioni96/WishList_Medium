@@ -12,15 +12,15 @@ import SwiftData
 final class WishItem: Identifiable {
     var id = UUID()
     var name = ""
+    var date = Date.now
     var isCompleted = false
     var isNew = false
-    var date = Date.now
     
-    init(id: UUID = UUID(), name: String = "", isCompleted: Bool = false, isNew: Bool = false, date: Date = Date.now) {
+    init(id: UUID = UUID(), name: String = "", date: Date = Date.now, isCompleted: Bool = false, isNew: Bool = false) {
         self.id = id
         self.name = name
+        self.date = date
         self.isCompleted = isCompleted
         self.isNew = isNew
-        self.date = date
     }
 }

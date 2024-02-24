@@ -25,7 +25,7 @@ struct WishList_MediumApp: App {
     
     var body: some Scene {
         WindowGroup {
-            HomeView(wishItem: .constant(.init()))
+            HomeView(modelContext: .init(sharedModelContainer))
                 .modelContainer(sharedModelContainer)
         }
     }

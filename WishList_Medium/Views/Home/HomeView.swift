@@ -6,23 +6,28 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct HomeView: View {
     // MARK: - Properties
     @Environment(\.dismiss) private var dismiss
     
-    @State var wishViewModel = WishViewModel()
-    @Binding var wishItem: WishItem
+    @State var wishViewModel: WishViewModel
+    
     @State private var isAddingNewWishItem = false
     @State private var isPickingSymbol = false
     @State private var newWishItem = false
     
     // MARK: - View Life-cycle
+    init(modelContext: ModelContext) {
+        let wishViewModel = WishViewModel(modelContext: modelContext)
+        _wishViewModel = State(initialValue: wishViewModel)
+    }
     
     var body: some View {
         NavigationStack {
             List {
-                ForEach(wishViewModel.wishItems) { item in
+                ForEach(wishViewModel.wishItems, id: \.id) { item in
                     WishItemRow(wishItem: item)
                 }
                 .onDelete(perform: { indexSet in
@@ -43,13 +48,10 @@ struct HomeView: View {
             }
             .navigationBarTitleDisplayMode(.automatic)
             .sheet(isPresented: self.$newWishItem) {
-                OperationView()
+                OperationView(wishViewModel: wishViewModel)
             }
         }
     }
 }
 
-#Preview {
-    HomeView(wishItem: .constant(.init()))
-}
 

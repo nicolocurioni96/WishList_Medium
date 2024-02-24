@@ -10,7 +10,8 @@ import SwiftUI
 struct OperationView: View {
     @Environment(\.dismiss) var dismiss
     
-    @State var wishViewModel = WishViewModel()
+    @State var wishViewModel: WishViewModel
+    
     @State private var name = ""
     @State private var isCompleted = false
     @State private var isNew = false
@@ -40,6 +41,7 @@ struct OperationView: View {
                             DatePicker("Date", selection: $date)
                                 .labelsHidden()
                                 .listRowSeparator(.hidden)
+                                .datePickerStyle(.graphical)
                         }
                         
                         Section {
@@ -93,7 +95,7 @@ struct OperationView: View {
     private func saveWishItem() {
         withAnimation {
             // Add new Wish Item
-            let newWishItem = WishItem(name: name, isCompleted: isCompleted, isNew: isNew)
+            let newWishItem = WishItem(name: name, date: date, isCompleted: isCompleted, isNew: isNew)
             
             wishViewModel.addItem(newWishItem)
             
@@ -114,8 +116,4 @@ struct OperationView: View {
             dismiss()
         }
     }
-}
-
-#Preview {
-    OperationView()
 }
