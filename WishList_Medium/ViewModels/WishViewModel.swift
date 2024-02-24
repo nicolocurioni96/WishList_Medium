@@ -6,25 +6,38 @@
 //
 
 import SwiftUI
+import SwiftData
 
-@Observable 
+@Observable
 class WishViewModel {
     // MARK: - Properties
-    var wishItems: [WishItem] = []
+    var modelContext: ModelContext
+    var wishItems = [WishItem]()
+    
+    init(modelContext: ModelContext) {
+        self.modelContext = modelContext
+        fetchWishItemData()
+    }
     
     // MARK: - Methods
     func addItem(_ item: WishItem) {
-        // [WIP] - Currently with dummy data..
-        wishItems.append(item)
+        modelContext.insert(item)
+        fetchWishItemData()
     }
     
     func removeItem(_ indexSet: IndexSet) {
-        // [WIP] - Currently with dummy data..
-        wishItems.remove(atOffsets: indexSet)
+        for index in indexSet {
+            modelContext.delete(wishItems[index])
+        }
+        fetchWishItemData()
     }
     
-    func updateItem(_ item: WishItem) {
-        // [WIP] - Currently with dummy data..
-        
+    func fetchWishItemData() {
+        do {
+            let descriptor = FetchDescriptor<WishItem>(sortBy: [SortDescriptor(\.date)])
+            wishItems = try modelContext.fetch(descriptor)
+        } catch {
+            print("🔴 Error: \(error.localizedDescription)")
+        }
     }
 }
