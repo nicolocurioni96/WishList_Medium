@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct WishItemRow: View {
-    @Binding var wishItem: WishItem
+    @State var wishItem: WishItem
     
     var body: some View {
         HStack {

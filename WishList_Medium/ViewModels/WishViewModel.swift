@@ -8,24 +8,20 @@
 import SwiftUI
 import SwiftData
 
-@Observable 
 class WishViewModel {
     // MARK: - Properties
-    var wishItems: [WishItem] = []
+    @Environment(\.modelContext) private var modelContext
+
+    @Query var wishItems: [WishItem]
     
     // MARK: - Methods
     func addItem(_ item: WishItem) {
-        // [WIP] - Currently with dummy data..
-        wishItems.append(item)
+        modelContext.insert(item)
     }
     
     func removeItem(_ indexSet: IndexSet) {
-        // [WIP] - Currently with dummy data..
-        wishItems.remove(atOffsets: indexSet)
-    }
-    
-    func updateItem(_ item: WishItem) {
-        // [WIP] - Currently with dummy data..
-        
+        for index in indexSet {
+            modelContext.delete(wishItems[index])
+        }
     }
 }

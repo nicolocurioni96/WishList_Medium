@@ -22,7 +22,7 @@ struct HomeView: View {
     var body: some View {
         NavigationStack {
             List {
-                ForEach($wishViewModel.wishItems) { item in
+                ForEach(wishViewModel.wishItems) { item in
                     WishItemRow(wishItem: item)
                 }
                 .onDelete(perform: { indexSet in
