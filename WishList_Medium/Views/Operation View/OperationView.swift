@@ -13,7 +13,7 @@ struct OperationView: View {
     @State var wishViewModel = WishViewModel()
     @State private var isPickingSymbol = false
     @State private var name = ""
-    @State private var symbol = ""
+    @State private var symbol = ItemSymbols.randomName()
     @State private var isCompleted = false
     @State private var isNew = false
     @State private var color: RGBAColor = ColorOptions.random().rgbaColor
