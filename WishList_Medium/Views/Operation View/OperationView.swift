@@ -99,7 +99,7 @@ struct OperationView: View {
             
             wishViewModel.addItem(newWishItem)
             
-            dismiss()
+            cancel()
         }
     }
     
