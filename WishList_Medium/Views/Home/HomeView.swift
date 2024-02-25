@@ -13,7 +13,6 @@ struct HomeView: View {
     @Environment(\.dismiss) private var dismiss
     
     @State var wishViewModel: WishViewModel = .init()
-    @State private var isAddingNewWishItem = false
     @State private var newWishItem = false
     
     // MARK: - View Life-cycle
