@@ -12,17 +12,13 @@ struct HomeView: View {
     // MARK: - Properties
     @Environment(\.dismiss) private var dismiss
     
-    @State var wishViewModel: WishViewModel
+    @State var wishViewModel: WishViewModel = .init()
     
     @State private var isAddingNewWishItem = false
     @State private var isPickingSymbol = false
     @State private var newWishItem = false
     
     // MARK: - View Life-cycle
-    init(modelContext: ModelContext) {
-        let wishViewModel = WishViewModel(modelContext: modelContext)
-        _wishViewModel = State(initialValue: wishViewModel)
-    }
     
     var body: some View {
         NavigationStack {
@@ -53,5 +49,3 @@ struct HomeView: View {
         }
     }
 }
-
-
